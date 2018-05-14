@@ -8,6 +8,6 @@ CREATE TABLE departments (
 );
 
 
-INSERT INTO products (department_name, over_head_costs)
+INSERT INTO departments (department_name, over_head_costs)
 VALUES ("appearl", 3000), ("food", 1200), ("Baby Care", 750),("Landscape", 10000),("tools", 200);
 

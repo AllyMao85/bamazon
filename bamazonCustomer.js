@@ -17,7 +17,7 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
   displayProducts();
   
-  connection.end();
+  //connection.end();
 });
 
 function displayProducts() {
@@ -58,12 +58,23 @@ function purchase() {
              } else {
                  var totalcost = answer.unit*res[0].price;
                  console.log("Total purchase value: "+totalcost);
+                 //update sales
+                 if (isNaN(res[0].product_sales)) {
+                 var productsales=totalcost;
+                 } else {
+                 var productsales=res[0].product_sales+totalcost;    
+                 }
                  //update inventory
                  var updatedInv = res[0].stock_quantity - answer.unit;
                  var sql = "UPDATE products SET stock_quantity = " +updatedInv+" WHERE item_id ="+answer.productId;
                  connection.query(sql, function (err, result) {
                  if (err) throw err;            
                  console.log("stockUpdated!");              
+                 });
+                 var sql2 = "UPDATE products SET product_sales = " +productsales+" WHERE item_id ="+answer.productId;
+                 connection.query(sql, function (err, result) {
+                 if (err) throw err;            
+                 console.log("salesUpdated!");              
                  });
              }
         })
@@ -72,3 +83,4 @@ function purchase() {
 
 }
  
+module.exports = displayProducts;

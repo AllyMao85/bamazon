@@ -18,7 +18,7 @@ var connection = mysql.createConnection({
     console.log("connected as id " + connection.threadId);
     managerView();
     
-    //connection.end();
+    connection.end();
   });
 
 
@@ -151,3 +151,4 @@ function addProduct () {
     });
 }
 
+module.exports = managerView;
