@@ -15,10 +15,10 @@ var connection = mysql.createConnection({
   
   connection.connect(function(err) {
     if (err) throw err;
-    console.log("connected as id " + connection.threadId);
+    //console.log("connected as id " + connection.threadId);
     managerView();
     
-    connection.end();
+    //connection.end();
   });
 
 
@@ -58,7 +58,7 @@ function managerView() {
 }
 
 function viewProduct() {
-    console.log("yes");
+    
     connection.query("SELECT * FROM products", function(err, res){
         if (err) throw err;
         var productlist=[];
