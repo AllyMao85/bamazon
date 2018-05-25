@@ -13,4 +13,5 @@ in the manager view, there are four options and they will read, filter, insert a
 
 In the supervisor view, there are four options and supervisor is able to view the sales and profit by department using table right Join query and using query to insert data to the department table. 
 
-
+Below are workflow screenshots:
+https://drive.google.com/open?id=12w5aQwxqnHcQa_DNOjxSvU3A5URH22S_
